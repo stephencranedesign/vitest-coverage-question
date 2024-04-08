@@ -1,0 +1,12 @@
+{
+    "include": ["src/**/*"],
+    "exclude": ["test/**/*"],
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "target": "ES2019",
+        "jsx": "react",
+        "esModuleInterop": true
+    }
+}

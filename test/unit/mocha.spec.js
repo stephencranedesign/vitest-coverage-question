@@ -1,5 +1,7 @@
-import {run} from '#src/vitest.js';
+import {run} from '#src/mocha.js';
 import {equal} from 'node:assert';
+
+console.log('hi from test');
 
 it('run - false', () => {
     equal(run(false), 0);

@@ -3,21 +3,29 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
+    "build": "babel src --out-dir lib",
     "test:mocha": "mocha 'test/unit/*.spec.*'",
     "test:vitest": "vitest",
     "coverage:mocha": "nyc npm run test:mocha",
     "coverage:vitest": "vitest --coverage",
-    "coverage": "rm -rf .nyc_output && rm -rf coverage && npm run coverage:mocha  && npm run coverage:vitest && cross-env REPORT=true npm run coverage:report",
+    "coverage": "rm -rf .nyc_output && rm -rf coverage && npm run coverage:vitest && npm run coverage:mocha && cross-env REPORT=true npm run coverage:report",
     "coverage:report": "nyc report --reporter=lcov --reporter=text"
   },
   "imports": {
-    "#src/*": "./src/*"
+    "#src/*": "./src/*",
+    "#lib/*": "./lib/*"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "7.19.3",
+    "@babel/core": "7.19.3",
+    "@babel/preset-env": "7.19.4",
+    "@babel/preset-react": "7.18.6",
+    "@babel/preset-typescript": "7.18.6",
+    "@babel/register": "7.18.9",
     "@vitest/coverage-istanbul": "1.4.0",
     "cross-env": "7.0.3",
     "mocha": "10.4.0",

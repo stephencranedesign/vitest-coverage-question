@@ -1,9 +1,7 @@
-function run(bool) {
+export function run(bool: boolean): number {
     if (bool) {
         return 1;
     }
 
     return 0;
 }
-
-module.exports = {run};

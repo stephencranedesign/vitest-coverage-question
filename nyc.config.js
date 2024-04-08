@@ -2,8 +2,8 @@ const nycrc = {
     reporter: ['json'],
     'check-coverage': false,
     cache: false,
-    sourceMap: true,
-    instrument: true,
+    sourceMap: false,
+    instrument: false,
     all: false
 };
 
@@ -14,6 +14,7 @@ if (process.env.REPORT === 'true') {
    nycrc.branches = 100;
    
    nycrc.reporter = ['lcov', 'text'];
+   nycrc['check-coverage'] = true;
 }
 
 module.exports = nycrc;
