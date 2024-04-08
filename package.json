@@ -1,0 +1,27 @@
+{
+  "name": "vitest-coverage-question",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test:mocha": "mocha 'test/unit/*.spec.*'",
+    "test:vitest": "vitest",
+    "coverage:mocha": "nyc npm run test:mocha",
+    "coverage:vitest": "vitest --coverage",
+    "coverage": "rm -rf .nyc_output && rm -rf coverage && npm run coverage:mocha  && npm run coverage:vitest && cross-env REPORT=true npm run coverage:report",
+    "coverage:report": "nyc report --reporter=lcov --reporter=text"
+  },
+  "imports": {
+    "#src/*": "./src/*"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitest/coverage-istanbul": "1.4.0",
+    "cross-env": "7.0.3",
+    "mocha": "10.4.0",
+    "nyc": "15.1.0",
+    "vitest": "1.4.0"
+  }
+}
