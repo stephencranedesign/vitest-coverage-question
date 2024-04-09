@@ -5,6 +5,6 @@ it('run - false', () => {
     equal(run(false), 0);
 });
 
-// it('run - true', () => {
-//     equal(run(true), 1);
-// });
+it('run - true', () => {
+    equal(run(true), 1);
+});

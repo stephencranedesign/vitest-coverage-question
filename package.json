@@ -8,10 +8,10 @@
     "build": "babel src --out-dir lib",
     "test:mocha": "mocha 'test/unit/*.spec.*'",
     "test:vitest": "vitest",
-    "coverage:mocha": "nyc npm run test:mocha",
+    "coverage:mocha": "cross-env NODE_ENV=test nyc npm run test:mocha",
     "coverage:vitest": "vitest --coverage",
-    "coverage": "rm -rf .nyc_output && rm -rf coverage && npm run coverage:vitest && npm run coverage:mocha && cross-env REPORT=true npm run coverage:report",
-    "coverage:report": "nyc report --reporter=lcov --reporter=text"
+    "coverage": "rm -rf .nyc_output && rm -rf coverage && npm run coverage:mocha && npm run coverage:vitest && npm run coverage:report",
+    "coverage:report": "cross-env REPORT=true nyc report --reporter=lcov --reporter=text"
   },
   "imports": {
     "#src/*": "./src/*",
@@ -27,6 +27,7 @@
     "@babel/preset-typescript": "7.18.6",
     "@babel/register": "7.18.9",
     "@vitest/coverage-istanbul": "1.4.0",
+    "babel-plugin-istanbul": "6.1.1",
     "cross-env": "7.0.3",
     "mocha": "10.4.0",
     "nyc": "15.1.0",

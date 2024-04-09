@@ -1,6 +1,11 @@
 console.log('babel.cjs');
 
 module.exports = {
+    env: {
+        test: {
+            plugins: [ 'istanbul' ]
+        }
+    },
     presets: [
         '@babel/preset-typescript',
         ['@babel/env', {
